@@ -1,0 +1,32 @@
+<h1>characters</h1>
+
+<p><%= link_to 'add new character', new_character_path %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Hero Name</th>
+      <th>Universe</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= link_to character.hero_name, character_path(character) %></td>
+        <td><%= character.first_name %></td>
+        <td><%= character.last_name %></td>
+        <td><%= character.universe %></td>
+        <td><%= link_to 'edit', edit_character_path(character) %></td>
+        <td><%= link_to 'delete', character_path(character), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= character.bio %></td> -->
+      </tr>
+
+    <% end %>
+  </tbody> 
+  <tr>
+
+</table>
